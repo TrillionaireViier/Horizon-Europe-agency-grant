@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eligibility | EuroHorizon Advisory</title>
+  <style>html,body,iframe{width:100%;height:100%;margin:0;border:0}body{overflow:hidden}</style>
+</head>
+<body>
+  <iframe id="site" src="../" title="EuroHorizon Advisory — Eligibility"></iframe>
+  <script>
+    (() => {
+      const section = 'eligibility';
+      const frame = document.getElementById('site');
+      const valid = ['home','about','funding','eligibility','services','success','consortia','planner','resources','news','faq','contact'];
+      frame.addEventListener('load', () => {
+        const win = frame.contentWindow;
+        const showSection = win.switchSection.bind(win);
+        win.switchSection = (next) => {
+          showSection(next);
+          const path = next === 'home' ? '../' : `../${next}/`;
+          parent.history.pushState({ section: next }, '', new URL(path, parent.location.href));
+        };
+        showSection(section);
+        parent.addEventListener('popstate', () => {
+          const last = parent.location.pathname.replace(/\/+$/, '').split('/').pop();
+          showSection(valid.includes(last) ? last : 'home');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

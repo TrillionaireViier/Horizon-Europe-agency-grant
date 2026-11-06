@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EuroHorizon Advisory | EU Grant & Consulting Agency</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        eu: {
+                            blue: '#003399',
+                            dark: '#001a4d',
+                            light: '#e6eeff',
+                            accent: '#ffcc00'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .section-pane { display: none; }
+        .section-pane.active { display: block; animation: fadeIn 0.4s ease-in-out; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+
+    <!-- Top EU Banner Announcement -->
+    <div class="bg-eu-blue text-white text-xs sm:text-sm py-2 px-4 text-center font-medium flex items-center justify-center gap-2 shadow-inner">
+        <span class="bg-eu-accent text-slate-900 text-xs px-2 py-0.5 rounded-full font-bold uppercase tracking-wide">Horizon Europe</span>
+        <span>Next-gen Research, Innovation & DeepTech Grants 2026–2027 Open for Consortia & SMEs.</span>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <div class="flex items-center gap-3 cursor-pointer" onclick="switchSection('home')">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-eu-blue to-eu-dark flex items-center justify-center text-white shadow-md">
+                    <i class="fa-solid fa-globe text-xl"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-extrabold tracking-tight text-eu-dark">Euro<span class="text-eu-blue">Horizon</span></span>
+                    <span class="block text-[10px] text-slate-500 font-semibold uppercase tracking-wider">Grant & Advisory Agency</span>
+                </div>
+            </div>
+
+            <!-- Desktop Nav Menu -->
+            <nav class="hidden xl:flex items-center gap-1">
+                <button onclick="switchSection('home')" class="nav-btn px-3 py-2 text-sm font-semibold rounded-lg transition text-slate-600 hover:text-eu-blue hover:bg-eu-light/50" data-target="home">Home</button>
+                <button onclick="switchSection('about')" class="nav-btn px-3 py-2 text-sm font-semibold rounded-lg transition text-slate-600 hover:text-eu-blue hover:bg-eu-light/50" data-target="about">About Us</button>
+                <button onclick="switchSection('funding')" class="nav-btn px-3 py-2 text-sm font-semibold rounded-lg transition text-slate-600 hover:text-eu-blue hover:bg-eu-light/50" data-target="funding">Programmes</button>
+                <button onclick="switchSection('eligibility')" class="nav-btn px-3 py-2 text-sm font-semibold rounded-lg transition text-slate-600 hover:text-eu-blue hover:bg-eu-light/50" data-target="eligibility">Eligibility Wizard</button>
+                <button onclick="switchSection('services')" class="nav-btn px-3 py-2 text-sm font-semibold rounded-lg transition text-slate-600 hover:text-eu-blue hover:bg-eu-light/50" data-target="services">Services</button>
+                <button onclick="switchSection('success')" class="nav-btn px-3 py-2 text-sm font-semibold rounded-lg transition text-slate-600 hover:text-eu-blue hover:bg-eu-light/50" data-target="success">Success Stories</button>
+                <button onclick="switchSection('consortia')" class="nav-btn px-3 py-2 text-sm font-semibold rounded-lg transition text-slate-600 hover:text-eu-blue hover:bg-eu-light/50" data-target="consortia">Consortia</button>
+                <button onclick="switchSection('planner')" class="nav-btn px-3 py-2 text-sm font-semibold rounded-lg transition text-slate-600 hover:text-eu-blue hover:bg-eu-light/50" data-target="planner">Budget Planner</button>
+                <button onclick="switchSection('resources')" class="nav-btn px-3 py-2 text-sm font-semibold rounded-lg transition text-slate-600 hover:text-eu-blue hover:bg-eu-light/50" data-target="resources">Resources</button>
+                <button onclick="switchSection('news')" class="nav-btn px-3 py-2 text-sm font-semibold rounded-lg transition text-slate-600 hover:text-eu-blue hover:bg-eu-light/50" data-target="news">News</button>
+                <button onclick="switchSection('faq')" class="nav-btn px-3 py-2 text-sm font-semibold rounded-lg transition text-slate-600 hover:text-eu-blue hover:bg-eu-light/50" data-target="faq">FAQ</button>
+            </nav>
+
+            <!-- CTA / Contact -->
+            <div class="flex items-center gap-3">
+                <button onclick="switchSection('contact')" class="hidden sm:inline-flex items-center gap-2 bg-eu-blue hover:bg-eu-dark text-white text-sm font-semibold px-5 py-2.5 rounded-xl shadow-md transition transform active:scale-95">
+                    <i class="fa-regular fa-calendar-check"></i> Book Consultation
+                </button>
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="xl:hidden p-2 rounded-lg text-slate-700 hover:bg-slate-100 transition focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Drawer -->
+        <div id="mobile-menu" class="hidden xl:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-1 shadow-lg">
+            <button onclick="switchSection('home'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-eu-light hover:text-eu-blue">1. Home / Overview</button>
+            <button onclick="switchSection('about'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-eu-light hover:text-eu-blue">2. About Us</button>
+            <button onclick="switchSection('funding'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-eu-light hover:text-eu-blue">3. Funding Programmes</button>
+            <button onclick="switchSection('eligibility'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-eu-light hover:text-eu-blue">4. Eligibility Wizard</button>
+            <button onclick="switchSection('services'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-eu-light hover:text-eu-blue">5. Application Services</button>
+            <button onclick="switchSection('success'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-eu-light hover:text-eu-blue">6. Success Stories</button>
+            <button onclick="switchSection('consortia'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-eu-light hover:text-eu-blue">7. Consortia Matching</button>
+            <button onclick="switchSection('planner'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-eu-light hover:text-eu-blue">8. Budget & Financial Planner</button>
+            <button onclick="switchSection('resources'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-eu-light hover:text-eu-blue">9. Resources & Guidelines</button>
+            <button onclick="switchSection('news'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-eu-light hover:text-eu-blue">10. News & Insights</button>
+            <button onclick="switchSection('faq'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-eu-light hover:text-eu-blue">11. FAQ</button>
+            <button onclick="switchSection('contact'); toggleMobileMenu();" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-eu-blue font-bold hover:bg-eu-light">12. Consultation Booking</button>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-grow">
+
+        <!-- 1. HOME / OVERVIEW -->
+        <section id="pane-home" class="section-pane active">
+            <!-- Hero Banner -->
+            <div class="relative bg-gradient-to-r from-eu-dark via-eu-blue to-indigo-900 text-white py-24 px-4 overflow-hidden">
+                <div class="absolute inset-0 opacity-15 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                <div class="max-w-7xl mx-auto relative z-10 grid lg:grid-cols-12 gap-12 items-center">
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur border border-white/20 text-eu-accent text-sm font-semibold">
+                            <i class="fa-solid fa-award">></i> Horizon Europe €95.5B Framework Experts
+                        </div>
+                        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
+                            Securing EU Grants for Visionary <span class="text-eu-accent underline decoration-wavy decoration-2">Innovators</span>.
+                        </h1>
+                        <p class="text-lg text-slate-200 leading-relaxed">
+                            EuroHorizon Advisory bridges the gap between groundbreaking research and European funding. We secure non-dilutive capital through Pillar II, EIC Accelerator, and Horizon Europe consortia with an 84% success rate.
+                        </p>
+                        <div class="flex flex-wrap gap-4 pt-2">
+                            <button onclick="switchSection('eligibility')" class="bg-eu-accent hover:bg-amber-400 text-slate-900 font-bold px-8 py-4 rounded-xl shadow-lg transition flex items-center gap-3">
+                                Check Grant Eligibility <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                            <button onclick="switchSection('funding')" class="bg-white/10 hover:bg-white/20 border border-white/30 text-white font-semibold px-8 py-4 rounded-xl backdrop-blur transition">
+                                Explore Programmes
+                            </button>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-5">
+                        <div class="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-3xl shadow-2xl space-y-6">
+                            <h3 class="text-xl font-bold border-b border-white/20 pb-4 flex items-center justify-between">
+                                <span>Key Impact Metrics</span>
+                                <i class="fa-solid fa-chart-line text-eu-accent"></i>
+                            </h3>
+                            <div class="grid grid-cols-2 gap-6">
+                                <div>
+                                    <div class="text-3xl font-black text-eu-accent">€145M+</div>
+                                    <div class="text-xs text-slate-300 font-medium">Secured for Clients</div>
+                                </div>
+                                <div>
+                                    <div class="text-3xl font-black text-white">84%</div>
+                                    <div class="text-xs text-slate-300 font-medium">Success Rate vs 12% Avg</div>
+                                </div>
+                                <div>
+                                    <div class="text-3xl font-black text-white">120+</div>
+                                    <div class="text-xs text-slate-300 font-medium">Consortia Led</div>
+                                </div>
+                                <div>
+                                    <div class="text-3xl font-black text-eu-accent">18+</div>
+                                    <div class="text-xs text-slate-300 font-medium">EU Nations Covered</div>
+                                </div>
+                            </div>
+                            <div class="pt-2 text-xs text-slate-300 italic border-t border-white/20 flex items-center gap-2">
+                                <i class="fa-solid fa-shield-halved text-eu-accent"></i> Certified EU Horizon & EIC Horizon Experts
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Pillars Overview -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-xs font-bold uppercase tracking-widest text-eu-blue bg-eu-light px-3 py-1 rounded-full">Horizon Structure</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Navigating the 3 Pillars of Horizon Europe</h2>
+                    <p class="text-slate-600 mt-2">We align your deep-tech startup, university lab, or SME with the precise EU funding instrument.</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-blue-50 text-eu-blue flex items-center justify-center font-bold text-xl mb-6">
+                                <i class="fa-solid fa-flask"></i>
+                            </div>
+                            <span class="text-xs font-bold text-eu-blue uppercase">Pillar I</span>
+                            <h3 class="text-xl font-bold text-slate-900 mt-1 mb-3">Excellent Science</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                ERC grants, Marie Skłodowska-Curie Actions (MSCA), and world-class research infrastructures supporting top-tier academic and scientific breakthroughs.
+                            </p>
+                        </div>
+                        <button onclick="switchSection('funding')" class="mt-6 text-eu-blue font-semibold text-sm flex items-center gap-2 hover:underline">
+                            Learn Pillar I Details <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-blue-50 text-eu-blue flex items-center justify-center font-bold text-xl mb-6">
+                                <i class="fa-solid fa-microchip"></i>
+                            </div>
+                            <span class="text-xs font-bold text-eu-blue uppercase">Pillar II</span>
+                            <h3 class="text-xl font-bold text-slate-900 mt-1 mb-3">Global Challenges & Industrial Competitiveness</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                Collaborative R&I clusters: Health, Digital & Space, Climate & Energy, Food & Agriculture, Security, driving cross-border consortia.
+                            </p>
+                        </div>
+                        <button onclick="switchSection('funding')" class="mt-6 text-eu-blue font-semibold text-sm flex items-center gap-2 hover:underline">
+                            Learn Pillar II Details <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md transition flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold text-xl mb-6">
+                                <i class="fa-solid fa-rocket"></i>
+                            </div>
+                            <span class="text-xs font-bold text-amber-600 uppercase">Pillar III / EIC</span>
+                            <h3 class="text-xl font-bold text-slate-900 mt-1 mb-3">Innovative Europe</h3>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                European Innovation Council (EIC) Accelerator (up to €2.5M grant + €15M equity), EIC Pathfinder, and EIT ecosystems for breakthrough startups.
+                            </p>
+                        </div>
+                        <button onclick="switchSection('funding')" class="mt-6 text-eu-blue font-semibold text-sm flex items-center gap-2 hover:underline">
+                            Learn EIC Accelerator <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. ABOUT US -->
+        <section id="pane-about" class="section-pane max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-eu-blue bg-eu-light px-3 py-1 rounded-full">Who We Are</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">About EuroHorizon Advisory</h2>
+                <p class="text-slate-600 mt-2">Elite strategists, former EU evaluators, financial auditors, and technical grant writers dedicated to deep-tech excellence.</p>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-bold text-slate-900">Your Trusted Bridge to Brussels Funding</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        Founded in Brussels and operating across 18 European states, EuroHorizon Advisory combines deep regulatory insight with rigorous technical proposal writing. We demystify the complex bureaucratic ecosystem of Horizon Europe and ensure your innovations stand out among thousands of applicants.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm">
+                            <div class="text-eu-blue font-bold text-lg mb-1"><i class="fa-solid fa-user-tie mr-2"></i> Former Evaluators</div>
+                            <p class="text-xs text-slate-500">Our consultants include former EC peer reviewers and evaluators.</p>
+                        </div>
+                        <div class="p-4 bg-white rounded-xl border border-slate-200 shadow-sm">
+                            <div class="text-eu-blue font-bold text-lg mb-1"><i class="fa-solid fa-handshake mr-2"></i> 120+ Consortia</div>
+                            <p class="text-xs text-slate-500">Proven track record in coordinating multi-partner European projects.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gradient-to-br from-eu-blue to-indigo-900 p-8 rounded-3xl text-white shadow-xl space-y-6">
+                    <h4 class="text-xl font-bold border-b border-white/20 pb-4">Our Core Values & Mission</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-eu-accent text-lg mt-0.5"></i>
+                            <div>
+                                <strong class="block">Excellence in Impact:</strong>
+                                <span class="text-xs text-slate-200">We prioritize projects with genuine societal, environmental, and technological breakthroughs.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-eu-accent text-lg mt-0.5"></i>
+                            <div>
+                                <strong class="block">Transparent Success Models:</strong>
+                                <span class="text-xs text-slate-200">We offer flexible fee structures tied directly to grant milestone achievements.</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-circle-check text-eu-accent text-lg mt-0.5"></i>
+                            <div>
+                                <strong class="block">End-to-End Partnership:</strong>
+                                <span class="text-xs text-slate-200">From ideation and partner matching to financial reporting and final audit.</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. FUNDING PROGRAMMES -->
+        <section id="pane-funding" class="section-pane max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-eu-blue bg-eu-light px-3 py-1 rounded-full">Funding Instruments</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Explore Horizon Europe & EIC Programmes</h2>
+                <p class="text-slate-600 mt-2">Comprehensive breakdown of grants, equity vehicles, and collaborative clusters.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold px-2.5 py-1 rounded bg-blue-100 text-eu-blue">EIC Accelerator</span>
+                        <h3 class="text-xl font-bold text-slate-900 mt-3">Deep Tech Startups & SMEs</h3>
+                        <p class="text-sm text-slate-600 mt-2">Up to €2.5M non-dilutive grant + up to €15M direct equity investment via EIC Fund for high-risk market creators.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500">
+                        <span>Funding: Blended</span>
+                        <button onclick="switchSection('contact')" class="text-eu-blue hover:underline">Apply Now →</button>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold px-2.5 py-1 rounded bg-indigo-100 text-indigo-700">Pillar II Cluster 4</span>
+                        <h3 class="text-xl font-bold text-slate-900 mt-3">Digital, Industry & Space</h3>
+                        <p class="text-sm text-slate-600 mt-2">Collaborative R&I for AI, robotics, advanced materials, photonics, quantum computing, and secure cloud infrastructures.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500">
+                        <span>Funding: 100% Grant</span>
+                        <button onclick="switchSection('contact')" class="text-eu-blue hover:underline">Apply Now →</button>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold px-2.5 py-1 rounded bg-emerald-100 text-emerald-700">Pillar II Cluster 5</span>
+                        <h3 class="text-xl font-bold text-slate-900 mt-3">Climate, Energy & Mobility</h3>
+                        <p class="text-sm text-slate-600 mt-2">Renewable energy, energy storage, smart grids, circular economy, and net-zero transport technologies.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500">
+                        <span>Funding: 70-100% Grant</span>
+                        <button onclick="switchSection('contact')" class="text-eu-blue hover:underline">Apply Now →</button>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold px-2.5 py-1 rounded bg-amber-100 text-amber-700">EIC Pathfinder</span>
+                        <h3 class="text-xl font-bold text-slate-900 mt-3">Radical Technology Research</h3>
+                        <p class="text-sm text-slate-600 mt-2">Grants up to €3M for early-stage consortia developing emerging visions for radically new future technologies.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500">
+                        <span>Funding: 100% Grant</span>
+                        <button onclick="switchSection('contact')" class="text-eu-blue hover:underline">Apply Now →</button>
+                    </div>
+                </div>
+                <!-- Card 5 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold px-2.5 py-1 rounded bg-purple-100 text-purple-700">ERC Grants</span>
+                        <h3 class="text-xl font-bold text-slate-900 mt-3">European Research Council</h3>
+                        <p class="text-sm text-slate-600 mt-2">Starting, Consolidator, and Advanced Grants for frontier research conducted by single Principal Investigators.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500">
+                        <span>Funding: Up to €2.5M</span>
+                        <button onclick="switchSection('contact')" class="text-eu-blue hover:underline">Apply Now →</button>
+                    </div>
+                </div>
+                <!-- Card 6 -->
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <span class="text-xs font-bold px-2.5 py-1 rounded bg-rose-100 text-rose-700">MSCA Postdoctoral</span>
+                        <h3 class="text-xl font-bold text-slate-900 mt-3">Marie Skłodowska-Curie Actions</h3>
+                        <p class="text-sm text-slate-600 mt-2">Fellowships for doctoral and postdoctoral researchers to foster international and cross-sector mobility.</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500">
+                        <span>Funding: Full Fellowship</span>
+                        <button onclick="switchSection('contact')" class="text-eu-blue hover:underline">Apply Now →</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. ELIGIBILITY CHECK (INTERACTIVE WIZARD) -->
+        <section id="pane-eligibility" class="section-pane max-w-4xl mx-auto px-4 py-16">
+            <div class="text-center mb-10">
+                <span class="text-xs font-bold uppercase tracking-widest text-eu-blue bg-eu-light px-3 py-1 rounded-full">Interactive Assessment</span>
+                <h2 class="text-3xl font-extrabold text-slate-900 mt-3">Horizon Europe Grant Eligibility Wizard</h2>
+                <p class="text-slate-600 mt-2">Answer 3 quick questions to discover your best-fit EU funding instrument in seconds.</p>
+            </div>
+
+            <div class="bg-white p-8 sm:p-10 rounded-3xl shadow-xl border border-slate-200">
+                <!-- Step 1 -->
+                <div id="wizard-step-1" class="wizard-step space-y-6">
+                    <div class="flex items-center justify-between text-sm font-semibold text-slate-400 border-b pb-4">
+                        <span>Question 1 of 3</span>
+                        <span class="text-eu-blue">33% Completed</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900">What is the legal structure of your entity?</h3>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <label class="border-2 border-slate-200 p-4 rounded-xl cursor-pointer hover:border-eu-blue transition flex items-center gap-3">
+                            <input type="radio" name="org_type" value="startup" class="text-eu-blue focus:ring-eu-blue">
+                            <span class="font-semibold text-slate-800">Early-stage Startup / SME (&lt; 250 employees)</span>
+                        </label>
+                        <label class="border-2 border-slate-200 p-4 rounded-xl cursor-pointer hover:border-eu-blue transition flex items-center gap-3">
+                            <input type="radio" name="org_type" value="corporate" class="text-eu-blue focus:ring-eu-blue">
+                            <span class="font-semibold text-slate-800">Mid-cap or Large Enterprise</span>
+                        </label>
+                        <label class="border-2 border-slate-200 p-4 rounded-xl cursor-pointer hover:border-eu-blue transition flex items-center gap-3">
+                            <input type="radio" name="org_type" value="uni" class="text-eu-blue focus:ring-eu-blue">
+                            <span class="font-semibold text-slate-800">University / Research Institution</span>
+                        </label>
+                        <label class="border-2 border-slate-200 p-4 rounded-xl cursor-pointer hover:border-eu-blue transition flex items-center gap-3">
+                            <input type="radio" name="org_type" value="ngo" class="text-eu-blue focus:ring-eu-blue">
+                            <span class="font-semibold text-slate-800">NGO / Public Body</span>
+                        </label>
+                    </div>
+                    <div class="flex justify-end pt-4">
+                        <button onclick="nextWizardStep(2)" class="bg-eu-blue hover:bg-eu-dark text-white font-semibold px-6 py-3 rounded-xl shadow transition">
+                            Next Question <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div id="wizard-step-2" class="wizard-step hidden space-y-6">
+                    <div class="flex items-center justify-between text-sm font-semibold text-slate-400 border-b pb-4">
+                        <span>Question 2 of 3</span>
+                        <span class="text-eu-blue">66% Completed</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900">What is your project's Technology Readiness Level (TRL)?</h3>
+                    <div class="grid sm:grid-cols-3 gap-4">
+                        <label class="border-2 border-slate-200 p-4 rounded-xl cursor-pointer hover:border-eu-blue transition">
+                            <input type="radio" name="trl" value="low" class="mb-2 text-eu-blue">
+                            <span class="block font-bold text-slate-800">TRL 1 - 3</span>
+                            <span class="text-xs text-slate-500">Basic research & proof of concept</span>
+                        </label>
+                        <label class="border-2 border-slate-200 p-4 rounded-xl cursor-pointer hover:border-eu-blue transition">
+                            <input type="radio" name="trl" value="med" class="mb-2 text-eu-blue">
+                            <span class="block font-bold text-slate-800">TRL 4 - 6</span>
+                            <span class="text-xs text-slate-500">Technology validated in lab/relevant environment</span>
+                        </label>
+                        <label class="border-2 border-slate-200 p-4 rounded-xl cursor-pointer hover:border-eu-blue transition">
+                            <input type="radio" name="trl" value="high" class="mb-2 text-eu-blue">
+                            <span class="block font-bold text-slate-800">TRL 7 - 9</span>
+                            <span class="text-xs text-slate-500">System prototype, operational & market ready</span>
+                        </label>
+                    </div>
+                    <div class="flex justify-between pt-4">
+                        <button onclick="nextWizardStep(1)" class="border border-slate-300 text-slate-700 font-semibold px-6 py-3 rounded-xl hover:bg-slate-50 transition">
+                            <i class="fa-solid fa-arrow-left mr-2"></i> Back
+                        </button>
+                        <button onclick="nextWizardStep(3)" class="bg-eu-blue hover:bg-eu-dark text-white font-semibold px-6 py-3 rounded-xl shadow transition">
+                            Next Question <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div id="wizard-step-3" class="wizard-step hidden space-y-6">
+                    <div class="flex items-center justify-between text-sm font-semibold text-slate-400 border-b pb-4">
+                        <span>Question 3 of 3</span>
+                        <span class="text-eu-blue">99% Completed</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900">What is your primary innovation domain?</h3>
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <label class="border-2 border-slate-200 p-4 rounded-xl cursor-pointer hover:border-eu-blue transition flex items-center gap-3">
+                            <input type="radio" name="domain" value="deeptech" class="text-eu-blue">
+                            <span class="font-semibold text-slate-800">DeepTech, AI, Quantum & Advanced Computing</span>
+                        </label>
+                        <label class="border-2 border-slate-200 p-4 rounded-xl cursor-pointer hover:border-eu-blue transition flex items-center gap-3">
+                            <input type="radio" name="domain" value="green" class="text-eu-blue">
+                            <span class="font-semibold text-slate-800">Green Energy, Clean Tech & Circular Economy</span>
+                        </label>
+                        <label class="border-2 border-slate-200 p-4 rounded-xl cursor-pointer hover:border-eu-blue transition flex items-center gap-3">
+                            <input type="radio" name="domain" value="health" class="text-eu-blue">
+                            <span class="font-semibold text-slate-800">Health, Biotech & Medical Devices</span>
+                        </label>
+                        <label class="border-2 border-slate-200 p-4 rounded-xl cursor-pointer hover:border-eu-blue transition flex items-center gap-3">
+                            <input type="radio" name="domain" value="other" class="text-eu-blue">
+                            <span class="font-semibold text-slate-800">Social Sciences, Humanities or Public Infrastructure</span>
+                        </label>
+                    </div>
+                    <div class="flex justify-between pt-4">
+                        <button onclick="nextWizardStep(2)" class="border border-slate-300 text-slate-700 font-semibold px-6 py-3 rounded-xl hover:bg-slate-50 transition">
+                            <i class="fa-solid fa-arrow-left mr-2"></i> Back
+                        </button>
+                        <button onclick="calculateEligibility()" class="bg-eu-accent hover:bg-amber-400 text-slate-900 font-bold px-8 py-3 rounded-xl shadow-lg transition">
+                            Get Eligibility Results <i class="fa-solid fa-wand-magic-sparkles ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step Result -->
+                <div id="wizard-result" class="hidden space-y-6 text-center py-6">
+                    <div class="w-20 h-20 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-3xl mx-auto shadow-inner">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <h3 class="text-2xl font-extrabold text-slate-900">Recommended EU Grant Match Found!</h3>
+                    <p class="text-slate-600 max-w-lg mx-auto">
+                        Based on your profile, your ideal match is the <strong id="match-program" class="text-eu-blue font-bold">EIC Accelerator Blended Finance</strong> with an estimated non-dilutive grant potential of up to <strong class="text-emerald-600 font-bold">€2.5M</strong>.
+                    </p>
+                    <div class="p-4 bg-blue-50 rounded-xl border border-blue-100 text-left max-w-md mx-auto space-y-2 text-sm text-slate-700">
+                        <div><strong class="text-eu-dark">Success Probability:</strong> <span class="text-emerald-600 font-bold">High (88%)</span></div>
+                        <div><strong class="text-eu-dark">Consortia Requirement:</strong> Single SME or Small Consortium</div>
+                        <div><strong class="text-eu-dark">Next Cut-off Date:</strong> October 2026</div>
+                    </div>
+                    <div class="flex justify-center gap-4 pt-4">
+                        <button onclick="resetWizard()" class="border border-slate-300 text-slate-700 font-semibold px-6 py-3 rounded-xl hover:bg-slate-50 transition">
+                            Retake Wizard
+                        </button>
+                        <button onclick="switchSection('contact')" class="bg-eu-blue hover:bg-eu-dark text-white font-bold px-8 py-3 rounded-xl shadow transition">
+                            Book Strategy Session for this Grant
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. APPLICATION SERVICES -->
+        <section id="pane-services" class="section-pane max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-eu-blue bg-eu-light px-3 py-1 rounded-full">Our Expertise</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Comprehensive Grant Writing & Advisory Services</h2>
+                <p class="text-slate-600 mt-2">From first draft to grant agreement and financial audits, we manage every step.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4 hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-blue-50 text-eu-blue rounded-xl flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-file-pen"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900">Proposal Writing & Editing</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Crafting persuasive Part B narratives adhering strictly to the EC evaluation criteria: Excellence, Impact, and Quality & Efficiency of Implementation.
+                    </p>
+                    <ul class="text-xs text-slate-500 space-y-2 pt-2 border-t">
+                        <li><i class="fa-solid fa-check text-eu-blue mr-2"></i> Storyline & pitch structuring</li>
+                        <li><i class="fa-solid fa-check text-eu-blue mr-2"></i> Impact quantification (KPIs)</li>
+                        <li><i class="fa-solid fa-check text-eu-blue mr-2"></i> Red-team peer reviews</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4 hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-blue-50 text-eu-blue rounded-xl flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-users-viewfinder"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900">Consortium Building</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Connecting your R&D with elite academic institutions, industrial leaders, and municipal stakeholders across 27 EU member states.
+                    </p>
+                    <ul class="text-xs text-slate-500 space-y-2 pt-2 border-t">
+                        <li><i class="fa-solid fa-check text-eu-blue mr-2"></i> Partner network of 1,200+ entities</li>
+                        <li><i class="fa-solid fa-check text-eu-blue mr-2"></i> Consortium Agreement negotiation</li>
+                        <li><i class="fa-solid fa-check text-eu-blue mr-2"></i> Role & WP allocation</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm space-y-4 hover:shadow-md transition">
+                    <div class="w-12 h-12 bg-blue-50 text-eu-blue rounded-xl flex items-center justify-center text-xl font-bold">
+                        <i class="fa-solid fa-calculator"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900">Financial & Audit Advisory</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Mastering Horizon Europe cost models, person-months calculation, indirect costs (25% flat rate), and EC financial reporting audits.
+                    </p>
+                    <ul class="text-xs text-slate-500 space-y-2 pt-2 border-t">
+                        <li><i class="fa-solid fa-check text-eu-blue mr-2"></i> Budget optimization</li>
+                        <li><i class="fa-solid fa-check text-eu-blue mr-2"></i> EC Portal & Funding & Tenders setup</li>
+                        <li><i class="fa-solid fa-check text-eu-blue mr-2"></i> Periodic technical reporting</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. SUCCESS STORIES & CASE STUDIES -->
+        <section id="pane-success" class="section-pane max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-eu-blue bg-eu-light px-3 py-1 rounded-full">Proven Track Record</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Success Stories & Client Case Studies</h2>
+                <p class="text-slate-600 mt-2">See how our clients secured multi-million euro non-dilutive funding across Europe.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Case 1 -->
+                <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm space-y-4 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-full bg-amber-100 text-amber-700 text-xs font-bold">EIC Accelerator</span>
+                            <span class="text-sm font-bold text-emerald-600">€2.4M Grant + €5M Equity</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-900">AeroQuantum: Next-Gen Quantum Sensors</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mt-2">
+                            A deep-tech startup based in Munich developing miniature quantum gravimeters. EuroHorizon revamped their pitch deck, clarified the commercialization roadmap, and coached the founding team for the Brussels face-to-face pitch.
+                        </p>
+                    </div>
+                    <blockquote class="border-l-4 border-eu-blue pl-4 italic text-xs text-slate-500">
+                        "EuroHorizon's ex-evaluator insights were absolute gold. We scored 14.8/15 on our first attempt." — Dr. Lena Weber, CEO
+                    </blockquote>
+                </div>
+
+                <!-- Case 2 -->
+                <div class="bg-white rounded-2xl border border-slate-200 p-8 shadow-sm space-y-4 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-full bg-blue-100 text-eu-blue text-xs font-bold">Pillar II Cluster 5</span>
+                            <span class="text-sm font-bold text-emerald-600">€6.8M Consortium Grant</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-900">GreenGrid AI: Smart Energy Distribution</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mt-2">
+                            Coordination of a 9-partner international consortium across Sweden, France, Spain, and Estonia integrating AI into municipal grid balancing.
+                        </p>
+                    </div>
+                    <blockquote class="border-l-4 border-eu-blue pl-4 italic text-xs text-slate-500">
+                        "Managing 9 partners is a nightmare without expert legal and financial coordination. EuroHorizon handled everything flawlessly." — Marcus Lindqvist, Coordinator
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. CONSORTIA MATCHING -->
+        <section id="pane-consortia" class="section-pane max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-eu-blue bg-eu-light px-3 py-1 rounded-full">Network & Collaboration</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Consortia Matching & Partner Portal</h2>
+                <p class="text-slate-600 mt-2">Looking for industrial partners, research labs, or SMEs to complete your Horizon proposal? Register your interest.</p>
+            </div>
+
+            <div class="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-sm max-w-4xl mx-auto space-y-8">
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">Organization Name</label>
+                        <input type="text" placeholder="e.g., NanoTech Labs GmbH" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-eu-blue focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">Country / Region</label>
+                        <select class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-eu-blue focus:outline-none">
+                            <option>Germany</option>
+                            <option>France</option>
+                            <option>Spain</option>
+                            <option>Italy</option>
+                            <option>Ukraine (Associated)</option>
+                            <option>Moldova (Associated)</option>
+                            <option>Other EU / Associated Country</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">Entity Type</label>
+                        <select class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-eu-blue focus:outline-none">
+                            <option>SME / Startup</option>
+                            <option>University / RTO</option>
+                            <option>Large Industry / Corporate</option>
+                            <option>Municipal / Public Authority</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">Target Call / Cluster</label>
+                        <input type="text" placeholder="e.g., HORIZON-CL4-2026-DIGITAL" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-eu-blue focus:outline-none">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-2">Role Sought in Consortium</label>
+                    <div class="flex flex-wrap gap-4">
+                        <label class="flex items-center gap-2"><input type="checkbox" class="text-eu-blue"> Coordinator</label>
+                        <label class="flex items-center gap-2"><input type="checkbox" class="text-eu-blue"> Technology Provider</label>
+                        <label class="flex items-center gap-2"><input type="checkbox" class="text-eu-blue"> Pilot Site / End User</label>
+                        <label class="flex items-center gap-2"><input type="checkbox" class="text-eu-blue"> Dissemination & Exploitation</label>
+                    </div>
+                </div>
+                <button onclick="alert('Partner profile successfully submitted to our European Consortia Database! Our matchmaker will contact you shortly.')" class="w-full bg-eu-blue hover:bg-eu-dark text-white font-bold py-4 rounded-xl shadow-lg transition">
+                    Register in Consortia Matchmaking Pool
+                </button>
+            </div>
+        </section>
+
+        <!-- 8. BUDGET & FINANCIAL PLANNER -->
+        <section id="pane-planner" class="section-pane max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-eu-blue bg-eu-light px-3 py-1 rounded-full">Interactive Tool</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Horizon Europe Budget & Cost Planner</h2>
+                <p class="text-slate-600 mt-2">Estimate personnel costs, indirect overheads (25%), and EC co-financing rates instantly.</p>
+            </div>
+
+            <div class="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-sm max-w-4xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+                <div class="space-y-6">
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">Total Project Estimated Budget (€)</label>
+                        <input type="range" id="budget-range" min="100000" max="5000000" step="50000" value="1200000" oninput="updateBudgetCalc()" class="w-full accent-eu-blue cursor-pointer">
+                        <div class="text-2xl font-black text-eu-blue mt-1" id="budget-display">€1,200,000</div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">Grant Funding Rate (%)</label>
+                        <select id="funding-rate" onchange="updateBudgetCalc()" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-eu-blue focus:outline-none">
+                            <option value="100">100% (Research & Innovation Actions - RIA / EIC)</option>
+                            <option value="70">70% (Innovation Actions - IA for SMEs/Industry)</option>
+                        </select>
+                    </div>
+                    <div class="p-4 bg-slate-50 rounded-xl space-y-2 text-xs text-slate-600">
+                        <div><i class="fa-solid fa-circle-info text-eu-blue mr-1"></i> Includes mandatory 25% flat-rate indirect cost (overhead).</div>
+                        <div><i class="fa-solid fa-circle-info text-eu-blue mr-1"></i> Personnel costs calculated on productive hours model.</div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-eu-dark to-eu-blue p-8 rounded-2xl text-white space-y-6 shadow-xl">
+                    <h4 class="text-lg font-bold border-b border-white/20 pb-4">Financial Breakdown</h4>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-slate-200">Total Eligible Costs:</span>
+                            <span id="calc-total" class="text-lg font-bold">€1,200,000</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-slate-200">EU Grant Contribution:</span>
+                            <span id="calc-grant" class="text-xl font-black text-eu-accent">€1,200,000</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-slate-200">Own Co-financing Required:</span>
+                            <span id="calc-cofin" class="text-lg font-bold">€0</span>
+                        </div>
+                    </div>
+                    <button onclick="switchSection('contact')" class="w-full bg-eu-accent hover:bg-amber-400 text-slate-900 font-bold py-3 rounded-xl shadow transition">
+                        Validate this Budget with an Expert
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. RESOURCES & GUIDELINES -->
+        <section id="pane-resources" class="section-pane max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-eu-blue bg-eu-light px-3 py-1 rounded-full">Knowledge Hub</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Resources, Templates & EC Guidelines</h2>
+                <p class="text-slate-600 mt-2">Download official EC templates, proposal writing checklists, and financial guidelines.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-lg bg-red-50 text-red-600 flex items-center justify-center font-bold mb-4">
+                            <i class="fa-solid fa-file-pdf"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-900">EIC Accelerator Step-by-Step Template 2026</h3>
+                        <p class="text-xs text-slate-500 mt-1">Full annotated Part B template structured for the 3-step evaluation process.</p>
+                    </div>
+                    <button onclick="alert('Downloading PDF Template...')" class="mt-6 text-eu-blue font-semibold text-xs flex items-center gap-2 hover:underline">
+                        <i class="fa-solid fa-download"></i> Download PDF (4.2 MB)
+                    </button>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-lg bg-blue-50 text-eu-blue flex items-center justify-center font-bold mb-4">
+                            <i class="fa-solid fa-file-excel"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-900">Horizon Europe Person-Month Calculator</h3>
+                        <p class="text-xs text-slate-500 mt-1">Excel model for calculating work package person-months and personnel rates.</p>
+                    </div>
+                    <button onclick="alert('Downloading Excel Spreadsheet...')" class="mt-6 text-eu-blue font-semibold text-xs flex items-center gap-2 hover:underline">
+                        <i class="fa-solid fa-download"></i> Download XLSX (1.1 MB)
+                    </button>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                    <div>
+                        <div class="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold mb-4">
+                            <i class="fa-solid fa-book"></i>
+                        </div>
+                        <h3 class="font-bold text-slate-900">EC Annotated Model Grant Agreement (AMGA)</h3>
+                        <p class="text-xs text-slate-500 mt-1">Official European Commission legal and financial compliance manual.</p>
+                    </div>
+                    <button onclick="alert('Downloading Guide...')" class="mt-6 text-eu-blue font-semibold text-xs flex items-center gap-2 hover:underline">
+                        <i class="fa-solid fa-download"></i> Download Guide (12.4 MB)
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. NEWS & INSIGHTS -->
+        <section id="pane-news" class="section-pane max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-eu-blue bg-eu-light px-3 py-1 rounded-full">Latest Updates</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">News & EU Funding Insights</h2>
+                <p class="text-slate-600 mt-2">Stay ahead with work programme updates, cut-off dates, and Brussels policy shifts.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm flex flex-col">
+                    <div class="bg-eu-light p-6 font-bold text-xs text-eu-blue">May 2026 • Policy Update</div>
+                    <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-lg">Horizon Europe 2026-2027 Work Programmes Released</h3>
+                            <p class="text-xs text-slate-600 mt-2">The European Commission has officially adopted the new work programmes with €14B allocated for green transition and AI sovereignty.</p>
+                        </div>
+                        <button onclick="switchSection('contact')" class="text-xs text-eu-blue font-bold flex items-center gap-1 hover:underline">Read Full Brief →</button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm flex flex-col">
+                    <div class="bg-eu-light p-6 font-bold text-xs text-eu-blue">April 2026 • EIC Accelerator</div>
+                    <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-lg">EIC Announces New Step 2 Interview Schedule</h3>
+                            <p class="text-xs text-slate-600 mt-2">Upcoming face-to-face juries in Brussels will feature stricter evaluation standards on deep-tech scalability and sovereignty.</p>
+                        </div>
+                        <button onclick="switchSection('contact')" class="text-xs text-eu-blue font-bold flex items-center gap-1 hover:underline">Read Full Brief →</button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm flex flex-col">
+                    <div class="bg-eu-light p-6 font-bold text-xs text-eu-blue">March 2026 • Associated Countries</div>
+                    <div class="p-6 flex-grow flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="font-bold text-slate-900 text-lg">Expanded Participation for Ukrainian & Moldovan SMEs</h3>
+                            <p class="text-xs text-slate-600 mt-2">New fast-track innovation vouchers and lump-sum grants deployed to support associated countries' integration into European R&I chains.</p>
+                        </div>
+                        <button onclick="switchSection('contact')" class="text-xs text-eu-blue font-bold flex items-center gap-1 hover:underline">Read Full Brief →</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 11. FAQ -->
+        <section id="pane-faq" class="section-pane max-w-4xl mx-auto px-4 py-16">
+            <div class="text-center mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-eu-blue bg-eu-light px-3 py-1 rounded-full">Got Questions?</span>
+                <h2 class="text-3xl font-extrabold text-slate-900 mt-3">Frequently Asked Questions</h2>
+                <p class="text-slate-600 mt-2">Everything you need to know about Horizon Europe grants, success fees, and timelines.</p>
+            </div>
+
+            <div class="space-y-4">
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <h3 class="font-bold text-slate-900 text-lg mb-2">How does EuroHorizon Advisory charge for its services?</h3>
+                    <p class="text-slate-text text-sm text-slate-600 leading-relaxed">
+                        We operate on a hybrid model consisting of a modest upfront onboarding & writing fee to cover expert researcher hours, combined with a success-based bonus upon grant award.
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <h3 class="font-bold text-slate-900 text-lg mb-2">What is the average duration of a Horizon Europe proposal preparation?</h3>
+                    <p class="text-slate-text text-sm text-slate-600 leading-relaxed">
+                        Typically, a robust EIC Accelerator or Pillar II proposal requires 6 to 10 weeks of intensive drafting, financial planning, and partner alignment before the EC deadline.
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <h3 class="font-bold text-slate-900 text-lg mb-2">Can startups from non-EU countries apply?</h3>
+                    <p class="text-slate-text text-sm text-slate-600 leading-relaxed">
+                        Yes! Countries associated with Horizon Europe (such as Ukraine, Moldova, Norway, UK, etc.) enjoy full participation rights on identical terms as EU member states.
+                    </p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
+                    <h3 class="font-bold text-slate-900 text-lg mb-2">What happens if our proposal is rejected on the first attempt?</h3>
+                    <p class="text-slate-text text-sm text-slate-600 leading-relaxed">
+                        We analyze the Evaluation Summary Report (ESR), address evaluator criticisms, and resubmit in the subsequent cut-off with prioritized support.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 12. CONTACT & CONSULTATION BOOKING -->
+        <section id="pane-contact" class="section-pane max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-eu-blue bg-eu-light px-3 py-1 rounded-full">Get in Touch</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Book Your Free Grant Consultation</h2>
+                <p class="text-slate-600 mt-2">Speak directly with an ex-EU evaluator to assess your project's grant readiness.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-12 gap-12 bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-xl max-w-5xl mx-auto">
+                <div class="lg:col-span-5 space-y-6 bg-eu-dark text-white p-8 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Brussels Headquarters</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                            EuroHorizon Advisory SPRL<br>
+                            Rue de la Loi 16, 1000 Bruxelles, Belgium
+                        </p>
+                        <div class="space-y-3 text-sm text-slate-300">
+                            <div class="flex items-center gap-3"><i class="fa-solid fa-envelope text-eu-accent"></i> contact@eurohorizon-advisory.eu</div>
+                            <div class="flex items-center gap-3"><i class="fa-solid fa-phone text-eu-accent"></i> +32 2 555 0192</div>
+                            <div class="flex items-center gap-3"><i class="fa-solid fa-clock text-eu-accent"></i> Mon - Fri: 09:00 - 18:00 CET</div>
+                        </div>
+                    </div>
+                    <div class="pt-6 border-t border-white/10 text-xs text-slate-400">
+                        Official EC Participant Identification Code (PIC): 984120941
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 space-y-6">
+                    <form onsubmit="event.preventDefault(); alert('Consultation request successfully submitted! Our senior grant advisor will contact you within 24 hours.');" class="space-y-4">
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1">Full Name</label>
+                                <input type="text" required placeholder="Dr. Alexander Vance" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-eu-blue focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1">Work Email</label>
+                                <input type="email" required placeholder="a.vance@company.eu" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-eu-blue focus:outline-none">
+                            </div>
+                        </div>
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1">Organization / Startup Name</label>
+                                <input type="text" required placeholder="DeepTech Solutions Ltd" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-eu-blue focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1">Target Programme</label>
+                                <select class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-eu-blue focus:outline-none">
+                                    <option>EIC Accelerator (€2.5M+)</option>
+                                    <option>Pillar II Collaborative Grant</option>
+                                    <option>EIC Pathfinder</option>
+                                    <option>ERC Grant</option>
+                                    <option>Other / Unsure</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1">Project Brief / Innovation Summary</label>
+                            <textarea rows="4" required placeholder="Briefly describe your technology, innovation, and funding goals..." class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-eu-blue focus:outline-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-eu-blue hover:bg-eu-dark text-white font-bold py-4 rounded-xl shadow-lg transition">
+                            Book Free 30-Min Strategy Consultation <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-eu-dark text-slate-400 py-12 border-t border-slate-800 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-4 gap-8 mb-8">
+            <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-eu-blue flex items-center justify-center text-white font-bold">
+                        <i class="fa-solid fa-globe text-sm"></i>
+                    </div>
+                    <span class="text-lg font-bold text-white">EuroHorizon</span>
+                </div>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                    Premier European grant advisory agency helping startups, SMEs, and research institutions secure Horizon Europe funding.
+                </p>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-sm mb-4">Quick Links</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><button onclick="switchSection('home')" class="hover:text-white transition">Home Overview</button></li>
+                    <li><button onclick="switchSection('funding')" class="hover:text-white transition">Funding Programmes</button></li>
+                    <li><button onclick="switchSection('eligibility')" class="hover:text-white transition">Eligibility Wizard</button></li>
+                    <li><button onclick="switchSection('services')" class="hover:text-white transition">Our Services</button></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-sm mb-4">Tools & Resources</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><button onclick="switchSection('planner')" class="hover:text-white transition">Budget & Cost Planner</button></li>
+                    <li><button onclick="switchSection('consortia')" class="hover:text-white transition">Consortia Matchmaker</button></li>
+                    <li><button onclick="switchSection('resources')" class="hover:text-white transition">Templates & Guidelines</button></li>
+                    <li><button onclick="switchSection('faq')" class="hover:text-white transition">FAQ</button></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold text-sm mb-4">Legal & Compliance</h4>
+                <p class="text-xs text-slate-400 leading-relaxed">
+                    EuroHorizon Advisory is an independent consultancy and is not officially affiliated with the European Commission. All trademark rights belong to their respective holders.
+                </p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 border-t border-slate-800 text-center text-xs text-slate-500">
+            &copy; 2026 EuroHorizon Advisory SPRL. All rights reserved. Built with professional EU standards.
+        </div>
+    </footer>
+
+    <!-- JavaScript Navigation & Interactive Logic -->
+    <script>
+        function switchSection(sectionId) {
+            // Hide all panes
+            document.querySelectorAll('.section-pane').forEach(pane => {
+                pane.classList.remove('active');
+            });
+            // Show target pane
+            const target = document.getElementById('pane-' + sectionId);
+            if (target) {
+                target.classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        document.getElementById('mobile-menu-btn').addEventListener('click', toggleMobileMenu);
+
+        // Eligibility Wizard Logic
+        function nextWizardStep(stepNum) {
+            document.querySelectorAll('.wizard-step').forEach(step => step.classList.add('hidden'));
+            document.getElementById('wizard-step-' + stepNum).classList.remove('hidden');
+        }
+
+        function calculateEligibility() {
+            document.querySelectorAll('.wizard-step').forEach(step => step.classList.add('hidden'));
+            
+            // Customize program recommendation based on radios if desired
+            const orgType = document.querySelector('input[name="org_type"]:checked')?.value;
+            const matchEl = document.getElementById('match-program');
+            if (orgType === 'startup') {
+                matchEl.textContent = 'EIC Accelerator Blended Finance';
+            } else if (orgType === 'uni') {
+                matchEl.textContent = 'European Research Council (ERC) Starting Grant';
+            } else {
+                matchEl.textContent = 'Horizon Europe Pillar II Collaborative Research';
+            }
+
+            document.getElementById('wizard-result').classList.remove('hidden');
+        }
+
+        function resetWizard() {
+            document.getElementById('wizard-result').classList.add('hidden');
+            document.getElementById('wizard-step-1').classList.remove('hidden');
+        }
+
+        // Budget Calculator Logic
+        function updateBudgetCalc() {
+            const budget = parseInt(document.getElementById('budget-range').value);
+            const rate = parseInt(document.getElementById('funding-rate').value);
+            const grant = Math.round(budget * (rate / 100));
+            const cofin = budget - grant;
+
+            document.getElementById('budget-display').textContent = '€' + budget.toLocaleString();
+            document.getElementById('calc-total').textContent = '€' + budget.toLocaleString();
+            document.getElementById('calc-grant').textContent = '€' + grant.toLocaleString();
+            document.getElementById('calc-cofin').textContent = '€' + cofin.toLocaleString();
+        }
+    </script>
+</body>
+</html>
